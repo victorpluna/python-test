@@ -1,22 +1,25 @@
 #!/usr/bin/env python3
 
 import argparse, sys, json
-import os.path
+
+from controllers.main_controller import MainController
 
 
 def main():
     parser = argparse.ArgumentParser(description='Generate Joyjet output')
     parser.add_argument(
-        'level', metavar='level<number>', type=str,
-        choices=['level1', 'level2', 'level3'],
-        help='an label to inform the output level'
+        '-l', '--level', type=int, choices=[1, 2, 3], required=True,
+        help='an integer to inform the output level'
     )
     args = parser.parse_args()
-    
-    with open(f'data/{args.level}.json') as f:
-        content = json.loads(f.read())
-        print(content)
+
+    with open(f'data/level{args.level}.json') as f:
+        input_data = json.loads(f.read())
+
+        controller = MainController(input_data=input_data, level=args.level)
+        return controller.generate_output()
 
 
 if __name__ == "__main__":
-    main()
+    output = main()
+    print(output)
