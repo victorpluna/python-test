@@ -1,4 +1,6 @@
 import json
+from models.articles import Articles
+from models.cart import Cart
 
 
 class MainController:
@@ -7,6 +9,16 @@ class MainController:
         self.level = level
     
     def generate_output(self):
-        # Temporary code to test the output mocked
-        with open(f'mock/output{self.level}.json') as f:
-            return json.loads(f.read())
+        articles = Articles(data=self.input_data.get('articles', []))
+
+        checkout_list = []
+
+        for cart_data in self.input_data.get('carts', []):
+            cart = Cart(
+                id=cart_data.get('id'), items=cart_data.get('items'),
+                articles=articles
+            )
+            
+            checkout_list.append({'id': cart.id, 'total': cart.total})
+        
+        return {'carts': checkout_list}
