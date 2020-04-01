@@ -8,3 +8,4 @@ class Articles:
         for article in self.data:
             if article.get('id') == id:
                 return article
+        return {}
