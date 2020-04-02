@@ -5,9 +5,8 @@ from models.discount import Discount
 
 
 class MainController:
-    def __init__(self, input_data, level):
+    def __init__(self, input_data):
         self.input_data = input_data
-        self.level = level
 
     def generate_output(self):
         articles = Articles(data=self.input_data.get('articles', []))

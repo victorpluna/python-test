@@ -9,7 +9,7 @@ def test_generate_output_level1_success():
     with open(INPUT_FILE) as f:
         input_data = json.loads(f.read())
 
-        controller = MainController(input_data=input_data, level=1)
+        controller = MainController(input_data=input_data)
         output_generated = controller.generate_output()
 
         with open(OUTPUT_FILE) as f:
@@ -25,7 +25,7 @@ def test_generate_output_level2_success():
     with open(INPUT_FILE) as f:
         input_data = json.loads(f.read())
 
-        controller = MainController(input_data=input_data, level=2)
+        controller = MainController(input_data=input_data)
         output_generated = controller.generate_output()
 
         with open(OUTPUT_FILE) as f:
@@ -41,7 +41,7 @@ def test_generate_output_level3_success():
     with open(INPUT_FILE) as f:
         input_data = json.loads(f.read())
 
-        controller = MainController(input_data=input_data, level=3)
+        controller = MainController(input_data=input_data)
         output_generated = controller.generate_output()
 
         with open(OUTPUT_FILE) as f:
@@ -57,7 +57,7 @@ def test_generate_input_level1_output_level2_fail():
     with open(INPUT_FILE) as f:
         input_data = json.loads(f.read())
 
-        controller = MainController(input_data=input_data, level=1)
+        controller = MainController(input_data=input_data)
         output_generated = controller.generate_output()
 
         with open(OUTPUT_FILE) as f:
@@ -73,7 +73,7 @@ def test_generate_input_level2_output_level3_fail():
     with open(INPUT_FILE) as f:
         input_data = json.loads(f.read())
 
-        controller = MainController(input_data=input_data, level=2)
+        controller = MainController(input_data=input_data)
         output_generated = controller.generate_output()
 
         with open(OUTPUT_FILE) as f:

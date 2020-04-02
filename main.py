@@ -17,7 +17,7 @@ def main():
     with open(f'data/level{args.level}.json') as f:
         input_data = json.loads(f.read())
 
-        controller = MainController(input_data=input_data, level=args.level)
+        controller = MainController(input_data=input_data)
         return controller.generate_output()
 
 
