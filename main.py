@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import argparse, sys, json
+import argparse
+import json
 
 from controllers.main_controller import MainController
 

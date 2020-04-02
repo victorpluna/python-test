@@ -1,4 +1,3 @@
-import json
 from models.delivery_fee import DeliveryFee
 
 DELIVERY_FEES_DATA = [

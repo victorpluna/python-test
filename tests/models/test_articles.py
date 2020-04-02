@@ -1,4 +1,3 @@
-import json
 from models.articles import Articles
 
 

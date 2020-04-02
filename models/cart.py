@@ -16,7 +16,9 @@ class Cart:
     def _calculate_items_total(self):
         total = 0
         for item in self.items:
-            article = self.articles.get_article_by_id(id=item.get('article_id'))
+            article = self.articles.get_article_by_id(
+                id=item.get('article_id')
+            )
             price = self.discount.get_article_price(article=article)
             total += (price * item.get('quantity'))
         return total

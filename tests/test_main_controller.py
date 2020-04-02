@@ -53,7 +53,7 @@ def test_generate_output_level3_success():
 def test_generate_input_level1_output_level2_fail():
     INPUT_FILE = 'data/level1.json'
     OUTPUT_FILE = 'tests/mock/output2.json'
-    
+
     with open(INPUT_FILE) as f:
         input_data = json.loads(f.read())
 
@@ -65,10 +65,11 @@ def test_generate_input_level1_output_level2_fail():
 
             assert output_generated != output_mocked
 
+
 def test_generate_input_level2_output_level3_fail():
     INPUT_FILE = 'data/level2.json'
     OUTPUT_FILE = 'tests/mock/output3.json'
-    
+
     with open(INPUT_FILE) as f:
         input_data = json.loads(f.read())
 
