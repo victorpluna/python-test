@@ -2,6 +2,7 @@ import json
 from models.cart import Cart
 from models.articles import Articles
 from models.delivery_fee import DeliveryFee
+from models.discount import Discount
 
 
 ARTICLES_DATA = [
@@ -43,6 +44,7 @@ DELIVERY_DATA = [
 def test_total_without_delivery_fee():
     articles = Articles(data=ARTICLES_DATA)
     delivery = DeliveryFee(data=DELIVERY_DATA)
+    discount = Discount(data=[])
 
     items = [
         { "article_id": 1, "quantity": 6 },
@@ -50,7 +52,10 @@ def test_total_without_delivery_fee():
         { "article_id": 4, "quantity": 1 }
     ]
 
-    cart = Cart(id=1, items=items, articles=articles, delivery=delivery)
+    cart = Cart(
+        id=1, items=items, articles=articles, delivery=delivery,
+        discount=discount
+    )
 
     assert cart.total == (100 * 6 + 200 * 2 + 1000)
 
@@ -58,13 +63,17 @@ def test_total_without_delivery_fee():
 def test_total_with_delivery_fee():
     articles = Articles(data=ARTICLES_DATA)
     delivery = DeliveryFee(data=DELIVERY_DATA)
+    discount = Discount(data=[])
 
     items = [
         { "article_id": 1, "quantity": 6 },
         { "article_id": 2, "quantity": 2 },
     ]
 
-    cart = Cart(id=1, items=items, articles=articles, delivery=delivery)
+    cart = Cart(
+        id=1, items=items, articles=articles, delivery=delivery,
+        discount=discount
+    )
 
     assert cart.total == (100 * 6 + 200 * 2) + 400
 
@@ -72,13 +81,17 @@ def test_total_with_delivery_fee():
 def test__calculate_items_total():
     articles = Articles(data=ARTICLES_DATA)
     delivery = DeliveryFee(data=DELIVERY_DATA)
+    discount = Discount(data=[])
 
     items = [
         { "article_id": 1, "quantity": 6 },
         { "article_id": 2, "quantity": 2 },
     ]
 
-    cart = Cart(id=1, items=items, articles=articles, delivery=delivery)
+    cart = Cart(
+        id=1, items=items, articles=articles, delivery=delivery,
+        discount=discount
+    )
 
     assert cart._calculate_items_total() == 100 * 6 + 200 * 2
 
@@ -86,13 +99,17 @@ def test__calculate_items_total():
 def test__apply_delivery_fee():
     articles = Articles(data=ARTICLES_DATA)
     delivery = DeliveryFee(data=DELIVERY_DATA)
+    discount = Discount(data=[])
 
     items = [
         { "article_id": 1, "quantity": 6 },
         { "article_id": 2, "quantity": 2 },
     ]
 
-    cart = Cart(id=1, items=items, articles=articles, delivery=delivery)
+    cart = Cart(
+        id=1, items=items, articles=articles, delivery=delivery,
+        discount=discount
+    )
 
     cart_price = 1000
     assert cart._apply_delivery_fee(price=cart_price) == cart_price + 400
