@@ -11,6 +11,7 @@ class Discount:
         for discount in self.discounts:
             if discount.get('article_id') == article_id:
                 return discount
+        return {}
     
     def _apply_discount_on_price(self, discount, price):
         if discount.get('type') == self.AMOUNT:
