@@ -18,7 +18,7 @@ class MainController:
 
         for cart_data in self.input_data.get('carts', []):
             cart = Cart(
-                id=cart_data.get('id'), items=cart_data.get('items'),
+                cart_id=cart_data.get('id'), items=cart_data.get('items'),
                 articles=articles, delivery=delivery, discount=discount
             )
 

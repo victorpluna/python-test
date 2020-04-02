@@ -16,7 +16,7 @@ class Discount:
     def _apply_discount_on_price(self, discount, price):
         if discount.get('type') == self.AMOUNT:
             return price - discount.get('value')
-        elif discount.get('type') == self.PERCENTAGE:
+        if discount.get('type') == self.PERCENTAGE:
             return int(price - discount.get('value') * price / 100)
         return price
 

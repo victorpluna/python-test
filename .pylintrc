@@ -1,0 +1,8 @@
+[MASTER]
+ignore =
+  migrations
+  __pycache__,
+  manage.py,
+  settings.py
+disable =
+  R0913, W0102, C0114, C0115, C0116, C0103, R0903

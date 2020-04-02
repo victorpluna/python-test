@@ -52,7 +52,7 @@ def test_total_without_delivery_fee():
     ]
 
     cart = Cart(
-        id=1, items=items, articles=articles, delivery=delivery,
+        cart_id=1, items=items, articles=articles, delivery=delivery,
         discount=discount
     )
 
@@ -70,7 +70,7 @@ def test_total_with_delivery_fee():
     ]
 
     cart = Cart(
-        id=1, items=items, articles=articles, delivery=delivery,
+        cart_id=1, items=items, articles=articles, delivery=delivery,
         discount=discount
     )
 
@@ -88,7 +88,7 @@ def test__calculate_items_total():
     ]
 
     cart = Cart(
-        id=1, items=items, articles=articles, delivery=delivery,
+        cart_id=1, items=items, articles=articles, delivery=delivery,
         discount=discount
     )
 
@@ -106,7 +106,7 @@ def test__apply_delivery_fee():
     ]
 
     cart = Cart(
-        id=1, items=items, articles=articles, delivery=delivery,
+        cart_id=1, items=items, articles=articles, delivery=delivery,
         discount=discount
     )
 

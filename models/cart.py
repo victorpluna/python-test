@@ -1,8 +1,8 @@
 
 
 class Cart:
-    def __init__(self, id, items, articles, delivery, discount):
-        self.id = id
+    def __init__(self, cart_id, items, articles, delivery, discount):
+        self.id = cart_id
         self.items = items
         self.articles = articles
         self.delivery = delivery
@@ -17,7 +17,7 @@ class Cart:
         total = 0
         for item in self.items:
             article = self.articles.get_article_by_id(
-                id=item.get('article_id')
+                article_id=item.get('article_id')
             )
             price = self.discount.get_article_price(article=article)
             total += (price * item.get('quantity'))
